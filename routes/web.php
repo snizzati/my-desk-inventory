@@ -14,7 +14,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/inventories', [App\Http\Controllers\InventoryController::class, 'index'])->name('inventories.index');
 
-
 Route::get('/inventories/create', [InventoryController::class, 'create'])->name('inventories.create');
 
 Route::post('/inventories/create', [InventoryController::class, 'store'])->name('inventories.store');

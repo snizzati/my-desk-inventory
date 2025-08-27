@@ -17,6 +17,7 @@
                                 <th>Model</th>
                                 <th>Plat</th>
                                 <th>Color</th>
+                                <th>User<th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,6 +28,7 @@
                                     <td>{{ $vehicle->model }}</td> 
                                     <td>{{ $vehicle->plat }}</td> 
                                     <td>{{ $vehicle->color }}</td>
+                                    <td>{{ $vehicle->user->name }}</td>
                                     <td>
                                         <a href="{{ route('vehicles.show',$vehicle) }}" class="btn btn-info btn-sm">Show</a>
 

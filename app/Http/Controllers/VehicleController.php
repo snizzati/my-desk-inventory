@@ -7,10 +7,14 @@ use App\Models\Vehicle;
 
 class VehicleController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //query all vehicle from table 'vehicles' using model
-        $vehicles = vehicle::all();
+        $vehicles = vehicle::latest()->get();
 
         //return to view with $vehicles (resources/views/vehicles/index.blade.php)
         return view('vehicles.index', compact('vehicles'));
@@ -31,6 +35,7 @@ class VehicleController extends Controller
         $vehicle->model = $request->model;
         $vehicle->plat = $request->plat;
         $vehicle->color = $request->color;
+        $vehicle->user_id = auth()->user()->id;
         $vehicle->save();
 
 
@@ -55,6 +60,7 @@ class VehicleController extends Controller
         $vehicle->model = $request->model;
         $vehicle->plat = $request->plat;
         $vehicle->color = $request->color;
+        $vehicle->user_id = auth()->user()->id;
         $vehicle->save();
 
         //return to inventory index

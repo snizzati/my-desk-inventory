@@ -23,6 +23,8 @@ class VehicleFactory extends Factory
             'model' =>$this->faker->word(),
             'plat' => $this->faker->numberBetween(1, 100),
             'color' =>$this->faker->word(),
+            'user_id'=> \App\Models\User::factory(),
+            
         ];
     }
 }

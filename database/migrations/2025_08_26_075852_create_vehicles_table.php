@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('model');
             $table->string('plat');
             $table->string('color');
-             $table->foreignId('user_id')->contrained()->onDelete('cascade');
+            $table->foreignId('user_id')->contrained()->onDelete('cascade');
             $table->timestamps();
+            $table->SoftDeletes();
+            
         });
     }
 
