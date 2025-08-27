@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../Users/USER/my-first-git-training"
+		},
+		{
+			"path": "../../../Users/USER/my-second-git-training"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
