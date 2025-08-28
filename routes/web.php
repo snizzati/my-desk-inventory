@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\APIPostController;
 
 Route::redirect('/', '/home');
 
@@ -54,6 +55,8 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.e
 Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('users.update');
 
 Route::get('/users/{user}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
+
+Route::get('posts', [APIPostController::class, 'index'])->name('posts.index');
 
 
 
