@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,7 +43,19 @@ Route::post('/vehicles/{vehicle}/edit', [VehicleController::class, 'update'])->n
 Route::get('/vehicles/{vehicle}/destroy', [VehicleController::class, 'destroy'])->name('vehicles.destroy');
 
 
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+
+Route::post('/users/create', [UserController::class, 'store'])->name('users.store');
+
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+
+Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('users.update');
+
+Route::get('/users/{user}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
 
 
 

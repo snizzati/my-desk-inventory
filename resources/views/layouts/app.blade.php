@@ -42,6 +42,12 @@
                          <li class="nav-item">
                             <a class="nav-link" href="{{ route('vehicles.create') }}">Vehicle Create</a>
                          </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('users.index') }}">User Index</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ route('users.create') }}">User Create</a>
+                                </li>
 
 
                     </ul>

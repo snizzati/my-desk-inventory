@@ -18,8 +18,9 @@ class VehicleFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = \Faker\Factory::create('ms_MY');
         return [
-            'name' =>$this->faker->word(),
+            'name' =>$faker->name(),
             'model' =>$this->faker->word(),
             'plat' => $this->faker->numberBetween(1, 100),
             'color' =>$this->faker->word(),

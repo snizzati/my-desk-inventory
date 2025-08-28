@@ -17,8 +17,10 @@ class InventoryFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = \Faker\Factory::create('ms_MY');
+
         return [
-            'name' =>$this->faker->word(),
+            'name' =>$faker->name(),
             'quantity' =>$this->faker->numberBetween(1, 100),
             'price' => $this->faker->randomFloat(2, 1,1000),
             'description' =>$this->faker->word(),
