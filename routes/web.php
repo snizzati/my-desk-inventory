@@ -5,9 +5,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/home');
 
 Auth::routes();
 

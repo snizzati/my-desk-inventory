@@ -32,14 +32,20 @@
                                     <td>{{ $inventory->description }}</td>
                                     <td>{{ $inventory->user->name }}</td>
                                     <td>
+                                        @can('view', $inventory)
                                         <a href="{{ route('inventories.show',$inventory) }}" class="btn btn-info btn-sm">Show</a>
+                                        @endcan
 
+                                        @can('update', $inventory)
                                         <a href="{{ route('inventories.edit',$inventory) }}" class="btn btn-success btn-sm">Edit</a>
+                                        @endcan
 
+                                            @can('delete', $inventory)
                                          <a href="{{ route('inventories.destroy', $inventory) }}" 
                                             class="btn btn-danger btn-sm"
                                             onclick="confirm('Are you sure you want to delete this inventory?') || event.preventDefault();">
                                             Delete</a>
+                                            @endcan
 
                                 </tr>
                             @endforeach

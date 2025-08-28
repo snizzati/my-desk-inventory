@@ -22,6 +22,7 @@ class InventoryController extends Controller
 
     public function create()
     {
+        $this ->authorize('create', Inventory::class);
         return view('inventories.create');
     }
 
@@ -45,16 +46,21 @@ class InventoryController extends Controller
 
     public function show(Inventory $inventory)
     {
+        $this ->authorize('view', $inventory);
+
         return view('inventories.show', compact('inventory'));
     }
 
     public function edit(Inventory $inventory)
     {
+        $this ->authorize('update', $inventory);
+         
         return view('inventories.edit', compact('inventory'));
     }
 
     public function update(Request $request, Inventory $inventory)
     {
+         
         //update using model
         $inventory->name = $request->name;
         $inventory->quantity = $request->quantity;
@@ -69,6 +75,7 @@ class InventoryController extends Controller
 
     public function destroy(Inventory $inventory)
     {
+        $this ->authorize('delete', $inventory);
         $inventory->delete();
 
         return redirect('/inventories');
