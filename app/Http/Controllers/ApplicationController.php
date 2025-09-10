@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Application;
 use App\Http\Requests\StoreApplicationRequest;
 use App\Http\Requests\UpdateApplicationRequest;
+use App\Models\Application;
+use App\Models\User;
+use App\Models\Inventory;
 
 class ApplicationController extends Controller
 {
@@ -21,7 +23,10 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $inventories = Inventory::all();
+
+        return view('applications.create', compact('users', 'inventories'));
     }
 
     /**
@@ -62,5 +67,11 @@ class ApplicationController extends Controller
     public function destroy(Application $application)
     {
         //
+    }
+
+    public function getInventoriesByUser($user_id)
+    {
+        $inventories = Inventory::where('user_id', $user_id)->get();
+        return response()->json($inventories);
     }
 }
