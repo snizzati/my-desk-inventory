@@ -38,4 +38,38 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">{{ __('Audits') }}</div>
+                <div class="card-body">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Event</th>
+                                <th>Old Values</th>
+                                <th>New Values</th>
+                                <th>Created At</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="table table-responsive">
+                            @foreach ($inventory->audits as $audit)
+                                <tr>
+                                    <td>{{ $audit->id }}</td>
+                                    <td>{{ $audit->event }}</td>
+                                    <td><pre>{{ print_r($audit->old_values, true) }}</pre></td>
+                                    <td><pre>{{ print_r($audit->new_values, true) }}</pre></td>
+                                    <td>{{ $audit->created_at }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
